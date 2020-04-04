@@ -3,7 +3,6 @@ div#captureBtn {
   height: 40px;
   border: 5px solid white;
   border-radius: 50%;
-  background: none;
   position: absolute;
   left: calc(50% - 25px);
   bottom: 50px;
@@ -11,11 +10,15 @@ div#captureBtn {
   cursor: pointer;
 }
 
-div.recordingAnimation {
-  width: 70px;
-  height: 70px;
-  position: absolute;
-  left: calc(50% - 35px);
-  bottom: 40px;
-  z-index: 8;
+div#captureBtn.on {
+  animation-name: flashing;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes flashing {
+  0%  { background-color: red; }
+  40% { background-color: white;}
+  60% { background-color: white; }
+  100% { background-color: red; }
 }

@@ -7,11 +7,16 @@ const filterPicker = require('./components/filterPicker');
 
 const canvas = document.createElement('canvas');
 
+console.log("hello")
+
 let videoElement;
 navigator.mediaDevices.getUserMedia({
   audio: true,
   video: true,
 }).then(stream => {
+
+  console.log("hello")
+
   videoElement = document.createElement('video');
   videoElement.srcObject = stream;
   videoElement.muted = true;
@@ -23,6 +28,7 @@ navigator.mediaDevices.getUserMedia({
     canvas.width = videoElement.videoWidth;
     canvas.height = videoElement.videoHeight;
     let context = canvas.getContext('2d', {alpha: false});
+    context.fillText("Hello World", 10, 50);
     let canvasStream = canvas.captureStream();
 
     filterPicker(videoElement, canvas, filters, document.body);
@@ -32,5 +38,5 @@ navigator.mediaDevices.getUserMedia({
 
     document.body.appendChild(canvas);
     captureButton(canvas, canvasStream, document.body);
-  });
-});
+  })
+}).catch(error => console.log(error));

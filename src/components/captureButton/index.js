@@ -22,19 +22,20 @@ module.exports = function captureButton(canvas, canvasStream, appendTo) {
   const captureBtn = document.createElement('div');
   const container = captureContainer(canvas, canvasStream, appendTo);
   captureBtn.setAttribute('id', 'captureBtn');
-  let recordingDiv;
-  captureBtn.addEventListener('mousedown', () => {
-    if (container.startCapturing()) {
-      recordingDiv = document.createElement('div');
-      recordingDiv.innerHTML = recordingAnimation;
-      recordingDiv.className = 'recordingAnimation';
+  let isCapturing;
 
-      appendTo.appendChild(recordingDiv);
+  captureBtn.addEventListener('mousedown', () => {
+    if (isCapturing) {
+      isCapturing = false
+      container.stopCapturing();
+      captureBtn.classList.remove("on");
+      return true
     }
-  });
-  captureBtn.addEventListener('mouseup', () => {
-    container.stopCapturing();
-    appendTo.removeChild(recordingDiv);
+
+    if (container.startCapturing()) {
+      isCapturing = true
+      captureBtn.classList.add("on");
+    }
   });
   appendTo.appendChild(captureBtn);
 };

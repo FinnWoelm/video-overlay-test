@@ -42,6 +42,8 @@ module.exports = function captureVideo(canvasStream) {
         }
       });
       mediaRecorder.start(10); // collect 10ms of data at a time
+
+      return true
     },
     stop: () => {
       if (mediaRecorder) {
