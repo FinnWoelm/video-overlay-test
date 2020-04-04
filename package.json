@@ -1,18 +1,13 @@
 {
-  "name": "snapchat-killer",
+  "name": "video-overlay-test",
   "version": "0.0.1",
-  "description": "Snapchat proof-of-concept",
+  "description": "HTML5 Video Recording with overlays",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "http-server & webpack --watch"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/aullman/opentok-camera-filters.git"
-  },
-  "author": "Adam Ullman",
-  "license": "MIT",
+  "author": "Finn Woelm, Adam Ullman",
   "dependencies": {
     "css-loader": "^0.26.0",
     "file-loader": "^0.9.0",
