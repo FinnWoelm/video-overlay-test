@@ -1,6 +1,8 @@
 /* global OT config */
 // A real app would use require('opentok-filters/src/filters.js');
-const filters = require('opentok-camera-filters/src/filters.js');
+// const filters = require('opentok-camera-filters/src/filters.js');
+
+const filters = {}
 
 const captureButton = require('./components/captureButton');
 const filterPicker = require('./components/filterPicker');
